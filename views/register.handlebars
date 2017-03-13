@@ -1,0 +1,45 @@
+<form method="post" class="reg-form login" action="/users/register">
+  <div class="row">
+    <div class="form-group">
+      <label>Потребителско име</label>
+      <input type="text" class="form-control" name="username">
+    </div>
+    <div class="form-group">
+      <label>Първо име</label>
+      <input type="text" class="form-control" name="firstName">
+    </div>
+    <div class="form-group">
+      <label>Фамилно име</label>
+      <input type="text" class="form-control" name="lastName">
+    </div>
+    <div class="form-group">
+      <label>Парола</label>
+      <input type="password" class="form-control" name="password">
+    </div>
+    <div class="form-group">
+      <label>Потвърди паролата</label>
+      <input type="password" class="form-control" name="password2">
+    </div>
+    <div class="form-group radio row">
+      <ul>
+        <li class="col-lg-6">
+          <input type="radio" id="s-option" name="role" value="student" checked>
+          <label for="s-option" style="font-weight: bold" >Ученик</label>
+<div class="check">
+  <div class="inside"></div>
+</div>
+</li>
+<li class="col-lg-6">
+  <input type="radio" id="t-option" name="role" value="teacher">
+  <label for="t-option" style="font-weight: bold">Учител</label>
+<div class="check">
+  <div class="inside"></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="row">
+  <button type="submit" class="ghost-button">Изпращане</button>
+</div>
+</form>

@@ -1,0 +1,29 @@
+{{#if user}}
+<div class="row login" style="width: 40%;">
+<div class="form-group">
+  <input id="search-teacher" type="text" class="form-control" placeholder="Потърсете за учители..">
+</div>
+</div>
+<div class="row login" style="width: 40%; margin-top: 0%">
+<div class="form-group text-center">
+  <ul class="list-group" id="all-teachers">
+    {{#each teachers}}
+    <li class="list-group-item"><a href="/users/profile/{{username}}">{{firstName}} {{lastName}}</a></li>
+    {{/each}}
+  </ul>
+</div>
+</div>
+<script src="/js/search-teacher-utills.js"></script>
+{{else}}
+<form class="login form-horizontal" method="post" action="/users/login">
+  <div class="form-group">
+    <label>Потребителско име</label>
+    <input type="text" class="form-control" name="username" placeholder="Username">
+  </div>
+  <div class="form-group">
+    <label>Парола</label>
+    <input type="password" class="form-control" name="password" placeholder="Password">
+  </div>
+  <button type="submit" class="ghost-button">Изпращане</button>
+</form>
+{{/if}}

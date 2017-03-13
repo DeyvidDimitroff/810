@@ -1,0 +1,33 @@
+{
+  "name": "educatio",
+  "version": "1.0.0",
+  "description": "NOIT 2017 Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "body-parser": "1.17.1",
+    "cookie-parser": "1.4.3",
+    "express": "4.15.2",
+    "express-handlebars": "3.0.0",
+    "express-session": "1.15.1",
+    "mongoose": "4.8.7",
+    "passport": "0.3.2",
+    "passport-local": "1.0.0",
+    "socket.io": "1.7.3"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeyvidDimitroff/810.git"
+  },
+  "author": "Deyvid Dimitrov, Leny Yordanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeyvidDimitroff/810/issues"
+  },
+  "homepage": "https://github.com/DeyvidDimitroff/810#readme"
+}
