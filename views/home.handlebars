@@ -1,10 +1,10 @@
 {{#if user}}
-<div class="row login" style="width: 40%;">
+<div class="row login page-lander" style="width: 40%;">
 <div class="form-group">
   <input id="search-teacher" type="text" class="form-control" placeholder="Потърсете за учители..">
 </div>
 </div>
-<div class="row login" style="width: 40%; margin-top: 0%">
+<div class="row login page-lander-bottom" style="width: 40%; margin-top: 0%">
 <div class="form-group text-center">
   <ul class="list-group" id="all-teachers">
     {{#each teachers}}
@@ -18,11 +18,11 @@
 <form class="login form-horizontal" method="post" action="/users/login">
   <div class="form-group">
     <label>Потребителско име</label>
-    <input type="text" class="form-control" name="username" placeholder="Username">
+    <input type="text" class="form-control" name="username">
   </div>
   <div class="form-group">
     <label>Парола</label>
-    <input type="password" class="form-control" name="password" placeholder="Password">
+    <input type="password" class="form-control" name="password">
   </div>
   <button type="submit" class="ghost-button">Изпращане</button>
 </form>

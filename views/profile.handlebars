@@ -1,8 +1,6 @@
 <div class="row teacherName">
   <div class="col-md-6">
-    <label>{{targetUser.firstName}} {{targetUser.lastName}}</label>
-    <br />
-    <label>{{targetUser.title}}</label>
+    <label>{{targetUser.firstName}} {{targetUser.lastName}} - {{targetUser.course.title}}</label>
   </div>
 </div>
 <div id="player"> Loading your player...</div>
@@ -13,23 +11,23 @@
   });
         //include any of your Javascript API calls here
 </script>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-8">
       <div id="messageArea" class="row">
         <div class="col-md-4">
           <div class="well">
-            <h3>Свързани потребители:</h3>
-            <ul class="list-group" id="users">
-              <li>{{user.username}}</li>
-            </ul>
+            <h3>Свързани потребители:
+              <span class="list-group" id="users">{{user.username}}</span>
+            </h3>
           </div>
         </div>
         <div class="col-md-4">
           <div class="well">
             <h3>Описание на курса</h3>
             <ul class="list-group" id="users">
-              <li>{{targetUser.longDescription}}</li>
+              <li>{{targetUser.course.description}}</li>
             </ul>
           </div>
         </div>
@@ -44,10 +42,10 @@
     <label>Напишете съобщение:</label>
     <textarea class="form-control" id="message"></textarea>
     <br/>
-    <input type="submit" class="btn btn-primary" value="Send Message" onclick="updateScroll();">
+    <input type="submit" class="btn btn-primary" value="Изпрати" onclick="updateScroll();">
 </div>
 </form>
-<div class="chat" id="chat">
+<div class="chat" id="chat" style="overflow:scroll;">
 
 </div>
 </div>
@@ -55,29 +53,30 @@
 </div>
 
 <script>
-                                                                               $(function () {
-                                                                                 var user = '{{user.username}}';
-                                                                                 var socket = io.connect();
-                                                                                 var $messageForm = $('#messageForm');
-                                                                                 var $message = $('#message');
-                                                                                 var $chat = $('#chat');
-                                                                                 var $users = $('#users');
-                                                                                 socket.on('users_count', function (data) {
-                                                                                   $('#users').text(data);
-                                                                                   console.log("Connection");
-                                                                                 });
-                                                                                 $messageForm.submit(function (e) {
-                                                                                   e.preventDefault();
-                                                                                   socket.emit('send message', JSON.stringify({ user: user, message: $message.val() }));
-                                                                                   $message.val('');
-                                                                                 });
-                                                                                 socket.on('new message', function (str) {
-                                                                                   var data = JSON.parse(str);
-                                                                                   $chat.append('<div class="well"><strong>' + data.user + ':</strong> ' + data.message + '</div>')
-                                                                                 });
-                                                                               });
-                                                                               function updateScroll() {
-                                                                                 var objDiv = document.getElementById("chat");
-                                                                                 objDiv.scrollTop = objDiv.scrollHeight;
-                                                                               }
+                                                                          $(function () {
+                                                                            var user = '{{user.username}}';
+                                                                            var socket = io.connect();
+                                                                            var $messageForm = $('#messageForm');
+                                                                            var $message = $('#message');
+                                                                            var $chat = $('#chat');
+                                                                            var $users = $('#users');
+                                                                            socket.on('users_count', function (data) {
+                                                                              $('#users').text(data);
+                                                                              console.log("Connection");
+                                                                            });
+                                                                            $messageForm.submit(function (e) {
+                                                                              e.preventDefault();
+                                                                              console.log('send message', user, $message)
+                                                                              socket.emit('send message', JSON.stringify({ user: user, message: $message.val() }));
+                                                                              $message.val('');
+                                                                            });
+                                                                            socket.on('new message', function (str) {
+                                                                              var data = JSON.parse(str);
+                                                                              $chat.append('<div class="well"><strong>' + data.user + ':</strong> ' + data.message + '</div>')
+                                                                            });
+                                                                          });
+                                                                          function updateScroll() {
+                                                                            var objDiv = document.getElementById("chat");
+                                                                            objDiv.scrollTop = objDiv.scrollHeight;
+                                                                          }
 </script>

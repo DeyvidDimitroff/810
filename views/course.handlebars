@@ -1,0 +1,33 @@
+<form method="post" class="reg-form" action="/users/update">
+
+  <div class="container-fluid">
+    <!-- Portfolio Item Heading -->
+    <div class="row">
+      <div class="col-md-8">
+        <div class="form-group">
+          <label class="labelName">Име на курса</label>
+          <input type="text" class="form-control courseName" name="title" value="{{course.title}}">
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Portfolio Item Row -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <label>Описание на курса</label>
+        <textarea id="show-me-text" class="form-control courseDescription" rows="5" name="description">{{course.description}}</textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button type="submit" class="ghost-button courseButton">Изпращане</button>
+      </div>
+    </div>
+  </div>
+
+</form>
+<!-- /.row -->
